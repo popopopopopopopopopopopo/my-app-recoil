@@ -1,5 +1,6 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
+import User from "./models/User";
 
 const { persistAtom } = recoilPersist();
 
@@ -10,9 +11,6 @@ export const countState = atom({
 
 export const userState = atom({
     key: "user",
-    default: {
-        name: "hoge",
-        age: 11,
-    },
+    default: new User("hoge", 11),
     effects_UNSTABLE: [persistAtom]
 })

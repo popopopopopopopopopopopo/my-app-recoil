@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { countState, userState } from "./Home.atom";
+import User from "./models/User";
 
 const Home = () => {
     const [count, setCount] = useRecoilState(countState);
@@ -10,7 +11,7 @@ const Home = () => {
         return c + 1;
     }
 
-    const updateUser = (u:any) => {
+    const updateUser = (u:User) => {
         const updatedUser = {...u, ...{ age:u.age + 1 }}
         return updatedUser;
     }
